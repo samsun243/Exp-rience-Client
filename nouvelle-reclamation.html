@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SGRC - Nouvelle Réclamation</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" type="image/svg+xml" href="logo.svg">
+</head>
+
+<body>
+    <div id="navbar-container"></div>
+
+    <main class="reveal container py-5">
+        <div class="row justify-content-center">
+            <div class="col-lg-8">
+                <div class="bento-card">
+                    <div class="mb-5 pb-4 border-bottom border-secondary border-opacity-10">
+                        <h1 class="display-4 fw-800 mb-2">Soumettre une <span class="text-primary">Réclamation</span>
+                        </h1>
+                        <p class="text-muted fs-5">Nous nous engageons à traiter votre dossier avec la plus grande
+                            diligence.</p>
+                    </div>
+
+                    <form id="complaint-form" class="row g-4">
+                        <div class="col-md-6">
+                            <label class="form-label fw-700 text-uppercase small text-muted mb-2 ls-wider">Votre
+                                Nom</label>
+                            <input type="text" id="client" class="form-control form-control-lg border-opacity-10 py-3"
+                                required placeholder="Jean Dupont">
+                        </div>
+                        <div class="col-md-6">
+                            <label class="form-label fw-700 text-uppercase small text-muted mb-2 ls-wider">Email</label>
+                            <input type="email" id="email" class="form-control form-control-lg border-opacity-10 py-3"
+                                required placeholder="jean@exemple.com">
+                        </div>
+                        <div class="col-12">
+                            <label class="form-label fw-700 text-uppercase small text-muted mb-2 ls-wider">Sujet de la
+                                Réclamation</label>
+                            <input type="text" id="subject" class="form-control form-control-lg border-opacity-10 py-3"
+                                required placeholder="Problème de facturation, retard de livraison...">
+                        </div>
+                        <div class="col-md-6">
+                            <label
+                                class="form-label fw-700 text-uppercase small text-muted mb-2 ls-wider">Catégorie</label>
+                            <select id="category" class="form-select form-select-lg border-opacity-10 py-3" required>
+                                <option value="Service Client">Service Client</option>
+                                <option value="Technique">Technique</option>
+                                <option value="Facturation">Facturation</option>
+                                <option value="Produit">Produit</option>
+                            </select>
+                        </div>
+                        <div class="col-md-6">
+                            <label
+                                class="form-label fw-700 text-uppercase small text-muted mb-2 ls-wider">Priorité</label>
+                            <select id="priority" class="form-select form-select-lg border-opacity-10 py-3" required>
+                                <option value="Basse">Basse</option>
+                                <option value="Moyenne" selected>Moyenne</option>
+                                <option value="Haute">Haute</option>
+                            </select>
+                        </div>
+                        <div class="col-12">
+                            <label class="form-label fw-700 text-uppercase small text-muted mb-2 ls-wider">Description
+                                Détaillée</label>
+                            <textarea id="description" class="form-control form-control-lg border-opacity-10" rows="6"
+                                required placeholder="Veuillez décrire votre problème en détail..."></textarea>
+                        </div>
+                        <div class="col-12 pt-3">
+                            <button type="submit" class="btn-premium w-100 py-4 fs-5">
+                                <i class="bi bi-send-fill me-2"></i>Envoyer la réclamation
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+        </div>
+
+        <!-- Bootstrap JS -->
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+        <script src="script.js"></script>
+</body>
+
+</html>

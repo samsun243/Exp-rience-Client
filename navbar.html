@@ -1,0 +1,39 @@
+<nav class="navbar glass">
+    <div class="container-fluid px-lg-5 px-3">
+        <div class="d-flex align-items-center">
+            <!-- Mobile Sidebar Toggle (Visible only on admin pages via JS) -->
+            <button class="btn border-0 p-2 me-3 d-lg-none" id="sidebarToggle" type="button"
+                aria-label="Toggle Sidebar">
+                <i class="bi bi-list fs-2 text-primary"></i>
+            </button>
+            <a class="navbar-brand fw-800 d-flex align-items-center" href="index.html">
+                <span class="text-primary fs-3">SGRC</span>
+            </a>
+        </div>
+
+        <div class="d-none d-lg-flex align-items-center gap-4">
+            <a class="nav-link fw-600 text-dark" href="index.html">Accueil</a>
+            <a class="nav-link fw-600 text-dark" href="nouvelle-reclamation.html">Réclamation</a>
+            <a class="nav-link fw-600 text-dark" href="mes-reclamations.html">Suivi</a>
+            <a class="btn-premium py-2 px-4 fs-7" href="dashboard.html">
+                <i class="bi bi-speedometer2 me-2"></i>Administration
+            </a>
+        </div>
+
+        <!-- Mobile Menu Toggle (Compact) -->
+        <button class="btn d-lg-none border-0 p-2" type="button" data-bs-toggle="collapse" data-bs-target="#mobileNav">
+            <i class="bi bi-three-dots-vertical fs-3"></i>
+        </button>
+    </div>
+
+    <!-- Collapsible Mobile Menu -->
+    <div class="collapse navbar-collapse bg-white w-100 d-lg-none border-top" id="mobileNav">
+        <ul class="navbar-nav p-4 gap-3 text-center">
+            <li class="nav-item"><a class="nav-link fs-5" href="index.html">Accueil</a></li>
+            <li class="nav-item"><a class="nav-link fs-5" href="nouvelle-reclamation.html">Nouvelle Réclamation</a></li>
+            <li class="nav-item"><a class="nav-link fs-5" href="mes-reclamations.html">Mes Suivis</a></li>
+            <li class="nav-item"><a class="btn-premium w-100 py-3 mt-2" href="dashboard.html">Tableau de Bord Admin</a>
+            </li>
+        </ul>
+    </div>
+</nav>
