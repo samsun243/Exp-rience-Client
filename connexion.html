@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SGRC - Connexion Premium</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css" rel="stylesheet">
+    <link rel="icon" type="image/svg+xml" href="logo.svg">
+</head>
+
+<body class="bg-dark d-flex align-items-center min-vh-100 py-5 overflow-x-hidden">
+
+    <div class="container position-relative z-1 px-4">
+        <div class="row justify-content-center">
+            <div class="col-md-8 col-lg-5">
+                <div class="card border-0 shadow-lg rounded-5 overflow-hidden p-2">
+                    <div class="card-body p-4 p-md-5">
+                        <div class="text-center mb-5">
+                            <h1 class="fw-black mb-1">Accès <span class="text-primary">Portail</span></h1>
+                            <p class="text-muted small fw-bold text-uppercase ls-widest">CONNECTEZ-VOUS POUR CONTINUER
+                            </p>
+                        </div>
+
+                        <form action="mes-reclamations.html">
+                            <div class="mb-3">
+                                <label class="form-label small fw-black text-muted ls-wide">VOTRE EMAIL</label>
+                                <input type="email"
+                                    class="form-control border-0 bg-light py-3 rounded-4 shadow-none px-4"
+                                    placeholder="sam@exemple.com" required>
+                            </div>
+                            <div class="mb-4">
+                                <div class="d-flex justify-content-between">
+                                    <label class="form-label small fw-black text-muted ls-wide">MOT DE PASSE</label>
+                                    <a href="#" class="small text-decoration-none fw-bold">Oublié ?</a>
+                                </div>
+                                <input type="password"
+                                    class="form-control border-0 bg-light py-3 rounded-4 shadow-none px-4" required>
+                            </div>
+                            <button type="submit"
+                                class="btn btn-primary w-100 py-3 fw-black rounded-pill shadow mb-4">SE
+                                CONNECTER</button>
+                            <div class="text-center mb-4">
+                                <span class="small text-muted fw-semibold">Nouveau venu ?</span>
+                                <a href="inscription.html"
+                                    class="small fw-black text-dark text-decoration-none border-bottom border-dark border-2 px-1">Créer
+                                    un profil</a>
+                            </div>
+                        </form>
+
+                        <div class="position-relative py-3">
+                            <hr class="text-muted border-2">
+                            <span
+                                class="position-absolute top-50 start-50 translate-middle bg-white px-3 fw-bold text-muted small letter-spacing-1">ADMINISTRATION</span>
+                        </div>
+                        <a href="dashboard.html"
+                            class="btn btn-dark w-100 py-3 rounded-pill fw-black mb-0 border-0 shadow-sm">
+                            <i class="bi bi-shield-lock-fill me-2"></i>ESPACE GESTION
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- BS JS (Zéro JS Perso) -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>

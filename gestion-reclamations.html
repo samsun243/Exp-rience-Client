@@ -4,148 +4,111 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SGRC Admin - Gestion</title>
+    <title>SGRC - Gestion des Tickets</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css" rel="stylesheet">
-    <link rel="stylesheet" href="style.css">
     <link rel="icon" type="image/svg+xml" href="logo.svg">
 </head>
 
-<body class="with-sidebar">
-    <div id="navbar-container"></div>
-    <div id="sidebar-container"></div>
-
-    <div class="main-content">
-        <main class="container-fluid py-4 reveal">
-            <div class="mb-5">
-                <h1 class="display-5 fw-800 mb-1">Gestion des <span class="text-primary">Tickets</span></h1>
-                <p class="text-muted fs-6">Consultez, analysez et répondez aux demandes clients.</p>
+<body class="bg-light">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark shadow-sm">
+        <div class="container">
+            <a class="navbar-brand fw-bold" href="index.html">SGRC Admin</a>
+            <div class="ms-auto">
+                <a href="index.html" class="btn btn-outline-light btn-sm">Quitter</a>
             </div>
+        </div>
+    </nav>
 
-            <div class="bento-card border-0 p-0 overflow-hidden">
-                <div class="table-responsive">
-                    <table class="table table-hover align-middle mb-0">
-                        <thead>
-                            <tr>
-                                <th class="ps-4">Client</th>
-                                <th>Sujet</th>
-                                <th>Priorité</th>
-                                <th>Date</th>
-                                <th class="text-end pe-4">Action</th>
-                            </tr>
-                        </thead>
-                        <tbody id="complaints-list">
-                            <!-- Content loaded via JS -->
-                        </tbody>
-                    </table>
+    <div class="container py-5">
+        <div class="row g-4">
+            <div class="col-lg-3">
+                <div class="list-group shadow-sm border-0">
+                    <a href="dashboard.html" class="list-group-item list-group-item-action border-0 py-3">
+                        <i class="bi bi-speedometer2 me-2"></i> Tableau de bord
+                    </a>
+                    <a href="gestion-reclamations.html"
+                        class="list-group-item list-group-item-action active border-0 py-3">
+                        <i class="bi bi-ticket-perforated me-2"></i> Gestion des tickets
+                    </a>
+                    <a href="statistiques.html" class="list-group-item list-group-item-action border-0 py-3">
+                        <i class="bi bi-bar-chart me-2"></i> Statistiques
+                    </a>
                 </div>
             </div>
-        </main>
+
+            <div class="col-lg-9">
+                <h2 class="fw-bold mb-4">Tous les Tickets</h2>
+
+                <div class="card border-0 shadow-sm p-0">
+                    <div class="table-responsive">
+                        <table class="table table-hover align-middle mb-0">
+                            <thead class="table-light">
+                                <tr>
+                                    <th class="ps-4">Date</th>
+                                    <th>Client</th>
+                                    <th>Sujet</th>
+                                    <th>Statut</th>
+                                    <th class="text-end pe-4">Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td class="ps-4 small text-muted">26/02/2026</td>
+                                    <td><strong>Samson</strong></td>
+                                    <td>Connexion impossible</td>
+                                    <td><span class="badge bg-warning text-dark">En attente</span></td>
+                                    <td class="text-end pe-4">
+                                        <button class="btn btn-sm btn-outline-primary" data-bs-toggle="modal"
+                                            data-bs-target="#replyModal">Traiter</button>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="ps-4 small text-muted">25/02/2026</td>
+                                    <td><strong>Jean</strong></td>
+                                    <td>Bug affichage mobile</td>
+                                    <td><span class="badge bg-primary text-white">En cours</span></td>
+                                    <td class="text-end pe-4">
+                                        <button class="btn btn-sm btn-outline-primary">Modifier</button>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 
-    <!-- Edit Modal -->
-    <div class="modal fade" id="editModal" tabindex="-1">
-        <div class="modal-dialog">
+    <!-- Modal statique (Bootstrap native) -->
+    <div class="modal fade" id="replyModal" tabindex="-1">
+        <div class="modal-dialog modal-dialog-centered">
             <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title">Modifier le statut</h5>
+                <div class="modal-header border-0 pb-0">
+                    <h5 class="fw-bold">Répondre au ticket</h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
                 </div>
-                <div class="modal-body">
-                    <hidden id="edit-id"></hidden>
-                    <label class="form-label">Changer le statut de <span id="modal-rec-id"
-                            class="fw-bold"></span></label>
-                    <select id="new-status" class="form-select">
-                        <option value="En attente">En attente</option>
-                        <option value="En cours">En cours</option>
-                        <option value="Résolu">Résolu</option>
-                        <option value="Rejeté">Rejeté</option>
-                    </select>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Annuler</button>
-                    <button type="button" class="btn btn-primary" onclick="updateStatus()">Enregistrer</button>
+                <div class="modal-body p-4">
+                    <div class="mb-3">
+                        <label class="form-label small fw-bold">Statut</label>
+                        <select class="form-select border-0 bg-light">
+                            <option>En cours</option>
+                            <option>Résolu</option>
+                        </select>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label small fw-bold">Message</label>
+                        <textarea class="form-control border-0 bg-light" rows="4"
+                            placeholder="Votre réponse..."></textarea>
+                    </div>
+                    <button class="btn btn-primary w-100 fw-bold py-3" data-bs-dismiss="modal">Envoyer la
+                        réponse</button>
                 </div>
             </div>
         </div>
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="script.js"></script>
-    <script>
-        let currentEditingId = null;
-
-        document.addEventListener('DOMContentLoaded', () => {
-            renderManagementTable();
-        });
-
-        function renderManagementTable() {
-            const complaints = getComplaints();
-            const list = document.getElementById('management-list');
-            list.innerHTML = complaints.map(c => `
-                <tr>
-                    <td><strong>${c.id}</strong></td>
-                    <td>
-                        <div>${c.client}</div>
-                        <small class="text-muted">${c.email}</small>
-                    </td>
-                    <td>${c.subject}</td>
-                    <td><span class="status-badge ${getPriorityClass(c.priority)}">${c.priority}</span></td>
-                    <td><span class="badge ${getStatusBadge(c.status)}">${c.status}</span></td>
-                    <td class="text-end">
-                        <div class="btn-group">
-                            <button class="btn btn-sm btn-outline-primary" onclick="openEditModal('${c.id}', '${c.status}')">
-                                <i class="bi bi-pencil"></i>
-                            </button>
-                            <button class="btn btn-sm btn-outline-danger" onclick="deleteComplaint('${c.id}')">
-                                <i class="bi bi-trash"></i>
-                            </button>
-                        </div>
-                    </td>
-                </tr>
-            `).join('');
-        }
-
-        function openEditModal(id, currentStatus) {
-            currentEditingId = id;
-            document.getElementById('modal-rec-id').textContent = id;
-            document.getElementById('new-status').value = currentStatus;
-            new bootstrap.Modal(document.getElementById('editModal')).show();
-        }
-
-        function updateStatus() {
-            const complaints = getComplaints();
-            const index = complaints.findIndex(c => c.id === currentEditingId);
-            if (index !== -1) {
-                complaints[index].status = document.getElementById('new-status').value;
-                saveComplaints(complaints);
-                renderManagementTable();
-                bootstrap.Modal.getInstance(document.getElementById('editModal')).hide();
-            }
-        }
-
-        function deleteComplaint(id) {
-            if (confirm(`Voulez-vous vraiment supprimer la réclamation ${id} ?`)) {
-                let complaints = getComplaints();
-                complaints = complaints.filter(c => c.id !== id);
-                saveComplaints(complaints);
-                renderManagementTable();
-            }
-        }
-
-        function getPriorityClass(p) {
-            if (p === 'Haute') return 'priority-high';
-            if (p === 'Moyenne') return 'priority-medium';
-            return 'priority-low';
-        }
-
-        function getStatusBadge(s) {
-            if (s === 'En attente') return 'bg-warning text-dark';
-            if (s === 'En cours') return 'bg-primary';
-            if (s === 'Résolu') return 'bg-success';
-            return 'bg-danger';
-        }
-    </script>
 </body>
 
 </html>

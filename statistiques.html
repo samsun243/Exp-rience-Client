@@ -4,123 +4,128 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SGRC Admin - Statistiques</title>
+    <title>SGRC - Statistiques Premium</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css" rel="stylesheet">
-    <link rel="stylesheet" href="style.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css" rel="stylesheet">
     <link rel="icon" type="image/svg+xml" href="logo.svg">
-    <!-- Chart.js -->
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 
-<body class="with-sidebar">
-    <div id="navbar-container"></div>
-    <div id="sidebar-container"></div>
+<body class="bg-light">
+    <!-- Slim Admin Navbar -->
+    <nav class="navbar navbar-dark bg-dark py-2 px-3 sticky-top shadow">
+        <div class="container-fluid">
+            <a class="navbar-brand fw-black small" href="index.html">SGRC ADMIN HUB</a>
+            <a href="dashboard.html" class="btn btn-outline-light btn-sm rounded-pill px-3 fw-bold">Retour Dashboard</a>
+        </div>
+    </nav>
 
-    <div class="main-content">
-        <main class="container-fluid py-4 reveal">
-            <div class="mb-5">
-                <h1 class="display-5 fw-800 mb-1">Analytics <span class="text-primary">& Insights</span></h1>
-                <p class="text-muted fs-6">Analyse de la performance et distribution des requêtes.</p>
+    <div class="container py-5">
+        <div class="row g-4 mb-5">
+            <!-- Sidebar -->
+            <div class="col-lg-3">
+                <div class="card border-0 shadow-lg rounded-4 overflow-hidden mb-4">
+                    <div class="list-group list-group-flush">
+                        <a href="dashboard.html" class="list-group-item list-group-item-action border-0 py-4 px-4">
+                            <i class="bi bi-grid me-3"></i>Vue d'Ensemble
+                        </a>
+                        <a href="gestion-reclamations.html"
+                            class="list-group-item list-group-item-action border-0 py-4 px-4">
+                            <i class="bi bi-ticket-perforated me-3"></i>Tickets Clients
+                        </a>
+                        <a href="statistiques.html"
+                            class="list-group-item list-group-item-action active border-0 py-4 px-4 bg-primary shadow-sm">
+                            <i class="bi bi-pie-chart-fill me-3"></i>Analyses Performance
+                        </a>
+                    </div>
+                </div>
             </div>
 
-            <div class="row g-4">
-                <!-- Evolution Chart -->
-                <div class="col-lg-8">
-                    <div class="bento-card h-100">
-                        <h5 class="fw-800 mb-4">Évolution des réclamations</h5>
-                        <canvas id="evolutionChart" style="max-height: 400px;"></canvas>
+            <!-- Stats Content -->
+            <div class="col-lg-9">
+                <h2 class="fw-black h2 mb-5">Analyses de <span class="text-primary">Performance</span></h2>
+
+                <div class="row g-4 mb-5">
+                    <div class="col-md-7">
+                        <div class="card border-0 shadow-lg rounded-4 p-5 h-100">
+                            <h5 class="fw-black mb-5"><i class="bi bi-funnel-fill text-primary me-2"></i>Priorisation
+                                des Dossiers</h5>
+
+                            <!-- Pure Bootstrap Progress (Premium Styled) -->
+                            <div class="mb-4">
+                                <div class="d-flex justify-content-between mb-2">
+                                    <span class="small fw-black text-muted text-uppercase ls-wide">Tickets
+                                        Prioritaires</span>
+                                    <span class="small fw-black text-danger">33%</span>
+                                </div>
+                                <div class="progress rounded-pill" style="height: 14px; background: rgba(0,0,0,0.03);">
+                                    <div class="progress-bar bg-danger shadow-sm" style="width: 33%"></div>
+                                </div>
+                            </div>
+
+                            <div class="mb-4">
+                                <div class="d-flex justify-content-between mb-2">
+                                    <span class="small fw-black text-muted text-uppercase ls-wide">Flux Régulier</span>
+                                    <span class="small fw-black text-warning">45%</span>
+                                </div>
+                                <div class="progress rounded-pill" style="height: 14px; background: rgba(0,0,0,0.03);">
+                                    <div class="progress-bar bg-warning shadow-sm" style="width: 45%"></div>
+                                </div>
+                            </div>
+
+                            <div class="mb-0">
+                                <div class="d-flex justify-content-between mb-2">
+                                    <span class="small fw-black text-muted text-uppercase ls-wide">Basse Priorité</span>
+                                    <span class="small fw-black text-success">22%</span>
+                                </div>
+                                <div class="progress rounded-pill" style="height: 14px; background: rgba(0,0,0,0.03);">
+                                    <div class="progress-bar bg-success shadow-sm" style="width: 22%"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-5">
+                        <div
+                            class="card border-0 shadow-lg rounded-4 p-4 p-lg-5 h-100 text-center bg-primary text-white">
+                            <h1 class="display-4 display-lg-2 fw-black mb-2">98%</h1>
+                            <p class="small fw-bold text-uppercase opacity-75 letter-spacing-1">TAUX DE RÉSOLUTION</p>
+                            <p class="small mb-4 opacity-75">Augmentation de 12% par rapport au mois dernier.</p>
+                            <div class="bg-white bg-opacity-10 rounded-4 p-4">
+                                <h6 class="fw-bold mb-1">Délai Moyen</h6>
+                                <p class="h4 fw-black mb-0 text-white-50">14 HEURES</p>
+                            </div>
+                        </div>
                     </div>
                 </div>
 
-                <!-- Distribution Chart -->
-                <div class="col-lg-4">
-                    <div class="bento-card h-100">
-                        <h5 class="fw-800 mb-4">Par Catégorie</h5>
-                        <canvas id="categoryChart"></canvas>
-                    </div>
-                </div>
-
-                <!-- Priority Levels -->
-                <div class="col-lg-12">
-                    <div class="bento-card">
-                        <h5 class="fw-800 mb-4">Niveaux de Priorité</h5>
-                        <div id="priority-stats">
-                            <!-- Content loaded via JS -->
+                <div class="card border-0 shadow-lg rounded-4 p-5">
+                    <h5 class="fw-black mb-4"><i class="bi bi-tags-fill text-primary me-2"></i>Distribution par
+                        Catégorie</h5>
+                    <div class="row g-4 text-center">
+                        <div class="col-6 col-md-3 border-end border-light">
+                            <p class="small text-muted fw-bold text-uppercase mb-1">TECHNIQUE</p>
+                            <h3 class="fw-black mb-0">12</h3>
+                        </div>
+                        <div class="col-6 col-md-3 border-end border-light">
+                            <p class="small text-muted fw-bold text-uppercase mb-1">COMMERCIAL</p>
+                            <h3 class="fw-black mb-0">08</h3>
+                        </div>
+                        <div class="col-6 col-md-3 border-end border-light">
+                            <p class="small text-muted fw-bold text-uppercase mb-1">FACTURE</p>
+                            <h3 class="fw-black mb-0">04</h3>
+                        </div>
+                        <div class="col-6 col-md-3">
+                            <p class="small text-muted fw-bold text-uppercase mb-1">AUTRE</p>
+                            <h3 class="fw-black mb-0">01</h3>
                         </div>
                     </div>
                 </div>
             </div>
-        </main>
+        </div>
     </div>
 
+    <!-- BS Bundle (Zéro JS Perso) -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="script.js"></script>
-    <script>
-        document.addEventListener('DOMContentLoaded', () => {
-            renderCharts();
-        });
-
-        function renderCharts() {
-            const complaints = getComplaints();
-
-            // Category Distribution
-            const categories = {};
-            complaints.forEach(c => {
-                categories[c.category] = (categories[c.category] || 0) + 1;
-            });
-
-            new Chart(document.getElementById('categoryChart'), {
-                type: 'doughnut',
-                data: {
-                    labels: Object.keys(categories),
-                    datasets: [{
-                        data: Object.values(categories),
-                        backgroundColor: ['#0d6efd', '#198754', '#ffc107', '#dc3545', '#6c757d']
-                    }]
-                },
-                options: {
-                    responsive: true,
-                    plugins: {
-                        legend: { position: 'bottom' }
-                    }
-                }
-            });
-
-            // Evolution Chart (Dummy data based on current complaints)
-            new Chart(document.getElementById('evolutionChart'), {
-                type: 'line',
-                data: {
-                    labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun'],
-                    datasets: [{
-                        label: 'Nombre de réclamations',
-                        data: [12, 19, 3, 5, 2, complaints.length],
-                        borderColor: '#0d6efd',
-                        tension: 0.1
-                    }]
-                }
-            });
-
-            // Priority Progress Bar
-            const total = complaints.length || 1;
-            const high = complaints.filter(c => c.priority === 'Haute').length;
-            const medium = complaints.filter(c => c.priority === 'Moyenne').length;
-            const low = complaints.filter(c => c.priority === 'Basse').length;
-
-            const highPct = (high / total * 100).toFixed(1);
-            const mediumPct = (medium / total * 100).toFixed(1);
-            const lowPct = (low / total * 100).toFixed(1);
-
-            document.getElementById('priority-high-bar').style.width = highPct + '%';
-            document.getElementById('priority-high-bar').textContent = high > 0 ? `Haute (${highPct}%)` : '';
-
-            document.getElementById('priority-medium-bar').style.width = mediumPct + '%';
-            document.getElementById('priority-medium-bar').textContent = medium > 0 ? `Moyenne (${mediumPct}%)` : '';
-
-            document.getElementById('priority-low-bar').style.width = lowPct + '%';
-            document.getElementById('priority-low-bar').textContent = low > 0 ? `Basse (${lowPct}%)` : '';
-        }
-    </script>
 </body>
 
 </html>

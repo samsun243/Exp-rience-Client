@@ -4,84 +4,110 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SGRC - Nouvelle Réclamation</title>
+    <title>SGRC - Nouveau Ticket Premium</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css" rel="stylesheet">
-    <link rel="stylesheet" href="style.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css" rel="stylesheet">
     <link rel="icon" type="image/svg+xml" href="logo.svg">
 </head>
 
-<body>
-    <div id="navbar-container"></div>
+<body class="bg-light">
+    <!-- Navbar Premium -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark shadow-sm py-3 sticky-top">
+        <div class="container">
+            <a class="navbar-brand fw-black fs-4" href="index.html">SGRC</a>
+            <div class="ms-auto">
+                <a href="mes-reclamations.html" class="btn btn-outline-light rounded-pill px-4 btn-sm fw-bold">ANNULER
+                    ET RETOURNER</a>
+            </div>
+        </div>
+    </nav>
 
-    <main class="reveal container py-5">
+    <main class="container py-5">
         <div class="row justify-content-center">
-            <div class="col-lg-8">
-                <div class="bento-card">
-                    <div class="mb-5 pb-4 border-bottom border-secondary border-opacity-10">
-                        <h1 class="display-4 fw-800 mb-2">Soumettre une <span class="text-primary">Réclamation</span>
-                        </h1>
-                        <p class="text-muted fs-5">Nous nous engageons à traiter votre dossier avec la plus grande
-                            diligence.</p>
+            <div class="col-lg-10 col-xl-8">
+                <div class="card border-0 shadow-lg rounded-5 overflow-hidden">
+                    <div class="card-header bg-primary py-4 py-md-5 px-4 px-md-5 border-0 text-white text-center">
+                        <h2 class="h4 h1-md fw-black mb-1 ls-tight">Soumettre un <span
+                                class="text-white-50">Ticket.</span></h2>
+                        <p class="small fw-bold text-uppercase opacity-75 ls-widest mb-0 small-mobile">RÉPONSE RAPIDE
+                            GARANTIE</p>
                     </div>
+                    <div class="card-body p-5">
+                        <form action="mes-reclamations.html">
+                            <div class="row g-4 mb-4">
+                                <div class="col-md-6 text-opacity-75">
+                                    <label class="form-label small fw-black text-muted text-uppercase mb-2 ls-wide">NOM
+                                        DU CLIENT</label>
+                                    <input type="text"
+                                        class="form-control border-0 bg-light py-3 rounded-4 fw-bold px-4"
+                                        value="Samson" readonly>
+                                </div>
+                                <div class="col-md-6 text-opacity-75">
+                                    <label
+                                        class="form-label small fw-black text-muted text-uppercase mb-2 ls-wide">VOTRE
+                                        EMAIL</label>
+                                    <input type="email"
+                                        class="form-control border-0 bg-light py-3 rounded-4 fw-bold px-4"
+                                        value="sam@exemple.com" readonly>
+                                </div>
+                                <div class="col-12">
+                                    <label
+                                        class="form-label small fw-black text-muted text-uppercase mb-2 ls-wide">SUJET
+                                        DE LA DEMANDE</label>
+                                    <input type="text"
+                                        class="form-control border-0 bg-light py-3 rounded-4 px-4 shadow-none"
+                                        placeholder="Ex: Problème d'accès à la plateforme" required>
+                                </div>
+                                <div class="col-md-6">
+                                    <label
+                                        class="form-label small fw-black text-muted text-uppercase mb-2 ls-wide">DOMAINE
+                                        / CATÉGORIE</label>
+                                    <select
+                                        class="form-select border-0 bg-light py-3 rounded-4 px-4 shadow-none fw-bold text-muted">
+                                        <option>TECHNIQUE</option>
+                                        <option>COMPTABILITÉ / FACTURES</option>
+                                        <option>SUPPORT GÉNÉRAL</option>
+                                    </select>
+                                </div>
+                                <div class="col-md-6">
+                                    <label
+                                        class="form-label small fw-black text-muted text-uppercase mb-2 ls-wide">NIVEAU
+                                        D'URGENCE</label>
+                                    <select
+                                        class="form-select border-0 bg-light py-3 rounded-4 px-4 shadow-none fw-bold text-danger">
+                                        <option class="text-success">STANDARD (BASSE)</option>
+                                        <option class="text-warning">IMPORTANT (MOYENNE)</option>
+                                        <option class="text-danger">CRITIQUE (HAUTE)</option>
+                                    </select>
+                                </div>
+                                <div class="col-12">
+                                    <label
+                                        class="form-label small fw-black text-muted text-uppercase mb-2 ls-wide">DESCRIPTION
+                                        DÉTAILLÉE</label>
+                                    <textarea class="form-control border-0 bg-light rounded-4 px-4 py-3 shadow-none"
+                                        rows="7"
+                                        placeholder="Décrivez votre problème avec précision pour une résolution rapide..."
+                                        required></textarea>
+                                </div>
+                            </div>
 
-                    <form id="complaint-form" class="row g-4">
-                        <div class="col-md-6">
-                            <label class="form-label fw-700 text-uppercase small text-muted mb-2 ls-wider">Votre
-                                Nom</label>
-                            <input type="text" id="client" class="form-control form-control-lg border-opacity-10 py-3"
-                                required placeholder="Samson">
-                        </div>
-                        <div class="col-md-6">
-                            <label class="form-label fw-700 text-uppercase small text-muted mb-2 ls-wider">Email</label>
-                            <input type="email" id="email" class="form-control form-control-lg border-opacity-10 py-3"
-                                required placeholder="sam@exemple.com>
-                        </div>
-                        <div class="col-12">
-                            <label class="form-label fw-700 text-uppercase small text-muted mb-2 ls-wider">Sujet de la
-                                Réclamation</label>
-                            <input type="text" id="subject" class="form-control form-control-lg border-opacity-10 py-3"
-                                required placeholder="Problème de facturation, retard de livraison...">
-                        </div>
-                        <div class="col-md-6">
-                            <label
-                                class="form-label fw-700 text-uppercase small text-muted mb-2 ls-wider">Catégorie</label>
-                            <select id="category" class="form-select form-select-lg border-opacity-10 py-3" required>
-                                <option value="Service Client">Service Client</option>
-                                <option value="Technique">Technique</option>
-                                <option value="Facturation">Facturation</option>
-                                <option value="Produit">Produit</option>
-                            </select>
-                        </div>
-                        <div class="col-md-6">
-                            <label
-                                class="form-label fw-700 text-uppercase small text-muted mb-2 ls-wider">Priorité</label>
-                            <select id="priority" class="form-select form-select-lg border-opacity-10 py-3" required>
-                                <option value="Basse">Basse</option>
-                                <option value="Moyenne" selected>Moyenne</option>
-                                <option value="Haute">Haute</option>
-                            </select>
-                        </div>
-                        <div class="col-12">
-                            <label class="form-label fw-700 text-uppercase small text-muted mb-2 ls-wider">Description
-                                Détaillée</label>
-                            <textarea id="description" class="form-control form-control-lg border-opacity-10" rows="6"
-                                required placeholder="Veuillez décrire votre problème en détail..."></textarea>
-                        </div>
-                        <div class="col-12 pt-3">
-                            <button type="submit" class="btn-premium w-100 py-4 fs-5">
-                                <i class="bi bi-send-fill me-2"></i>Envoyer la réclamation
-                            </button>
-                        </div>
-                    </form>
+                            <div class="d-grid pt-3">
+                                <button type="submit"
+                                    class="btn btn-primary py-3 rounded-pill fw-black shadow-lg text-uppercase ls-wide">ENVOYER
+                                    LA RÉCLAMATION <i class="bi bi-send-fill ms-2"></i></button>
+                            </div>
+                        </form>
+                    </div>
                 </div>
             </div>
         </div>
-        </div>
+    </main>
 
-        <!-- Bootstrap JS -->
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-        <script src="script.js"></script>
+    <footer class="py-5 text-center text-muted small">
+        <p class="fw-bold text-uppercase ls-widest mb-0 opacity-25">SGRC PREMIUM NATIVE FORM</p>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 
 </html>

@@ -4,57 +4,110 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SGRC - Mes Réclamations</title>
+    <title>SGRC - Mes Réclamations Premium</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css" rel="stylesheet">
-    <link rel="stylesheet" href="style.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css" rel="stylesheet">
     <link rel="icon" type="image/svg+xml" href="logo.svg">
 </head>
 
-<body>
-    <div id="navbar-container"></div>
-
-    <main class="reveal container py-5">
-        <div class="bento-card">
-            <div class="d-flex flex-column flex-md-row justify-content-between align-items-md-center mb-5 gap-4">
-                <div>
-                    <h1 class="display-4 fw-800 mb-2">Suivi de vos <span class="text-primary">Dossiers</span></h1>
-                    <p class="text-muted fs-5 mb-0">Consultez l'état d'avancement de vos demandes en temps réel.</p>
+<body class="bg-light">
+    <!-- Navbar Premium Statique -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark shadow-lg py-3 sticky-top">
+        <div class="container">
+            <a class="navbar-brand fw-black fs-4" href="index.html">SGRC</a>
+            <div class="ms-auto hstack gap-3">
+                <div class="vr bg-white opacity-25 d-none d-md-block" style="height: 20px;"></div>
+                <div class="d-flex align-items-center gap-2">
+                    <span class="text-white small fw-bold d-none d-md-inline">SAMSON</span>
+                    <a href="index.html"
+                        class="btn btn-outline-danger btn-sm rounded-pill border-0 fw-bold">DÉCONNEXION</a>
                 </div>
-                <a href="nouvelle-reclamation.html" class="btn-premium py-3 px-4">
-                    <i class="bi bi-plus-lg me-2"></i>Nouvelle Demande
-                </a>
             </div>
+        </div>
+    </nav>
 
-            <div class="table-responsive table-refinement">
-                <table class="table table-hover align-middle">
-                    <thead>
-                        <tr>
-                            <th class="ps-0">Sujet & Catégorie</th>
-                            <th>Priorité</th>
-                            <th>Date de dépôt</th>
-                            <th class="text-end pe-0">Statut</th>
+    <main class="container py-5">
+        <div class="d-flex flex-column flex-md-row justify-content-between align-items-md-end mb-5 gap-3 px-3 px-md-0">
+            <div>
+                <div class="badge bg-primary bg-opacity-10 text-primary px-3 py-2 rounded-pill fw-bold small mb-2">
+                    TABLEAU DE BORD CLIENT</div>
+                <h1 class="fw-black h3 display-5-md ls-tight mb-0">Vos tickets de <span
+                        class="text-primary">support.</span>
+                </h1>
+            </div>
+            <a href="nouvelle-reclamation.html"
+                class="btn btn-primary btn-lg rounded-pill px-5 py-3 fw-bold shadow-lg border-0">
+                <i class="bi bi-plus-circle-fill me-2"></i>Nouveau Ticket
+            </a>
+        </div>
+
+        <!-- List View -->
+        <div class="card border-0 shadow-lg rounded-5 overflow-hidden">
+            <div class="table-responsive">
+                <table class="table table-hover align-middle mb-0">
+                    <thead class="bg-light">
+                        <tr class="text-muted small fw-black text-uppercase ls-wide">
+                            <th class="ps-5 py-4 border-0">DÉTAILS DU TICKET</th>
+                            <th class="py-4 border-0">DATE</th>
+                            <th class="py-4 border-0">CATÉGORIE</th>
+                            <th class="text-end pe-5 py-4 border-0">STATUT</th>
                         </tr>
                     </thead>
-                    <tbody id="my-list">
-                        <!-- Loaded via JS -->
+                    <tbody class="border-top-0">
+                        <tr class="transition-all">
+                            <td class="ps-5 py-4 border-0">
+                                <div class="fw-black fs-5 text-dark mb-1">Connexion impossible au dashboard</div>
+                                <p class="text-muted small mb-0 fw-semibold opacity-75">Récurrence du problème lors des
+                                    heures de pointe...</p>
+                            </td>
+                            <td class="py-4 border-0 text-muted fw-bold">26 FÉV 2026</td>
+                            <td class="py-4 border-0">
+                                <span
+                                    class="badge bg-dark bg-opacity-10 text-dark border border-dark border-opacity-10 rounded-pill px-3 py-2">TECHNIQUE</span>
+                            </td>
+                            <td class="text-end pe-5 py-4 border-0">
+                                <div
+                                    class="badge bg-warning bg-opacity-10 text-warning px-4 py-3 rounded-pill fw-black small border border-warning border-opacity-25 shadow-sm">
+                                    <i class="bi bi-clock-fill me-2"></i>EN ATTENTE
+                                </div>
+                            </td>
+                        </tr>
+                        <tr class="transition-all">
+                            <td class="ps-5 py-4 border-0">
+                                <div class="fw-black fs-5 text-dark mb-1">Erreur de facturation - Janvier</div>
+                                <p class="text-muted small mb-0 fw-semibold opacity-75">Double prélèvement identifié sur
+                                    mon relevé...</p>
+                            </td>
+                            <td class="py-4 border-0 text-muted fw-bold">20 FÉV 2026</td>
+                            <td class="py-4 border-0">
+                                <span
+                                    class="badge bg-dark bg-opacity-10 text-dark border border-dark border-opacity-10 rounded-pill px-3 py-2">COMMERCIAL</span>
+                            </td>
+                            <td class="text-end pe-5 py-4 border-0">
+                                <div
+                                    class="badge bg-success bg-opacity-10 text-success px-4 py-3 rounded-pill fw-black small border border-success border-opacity-25 shadow-sm">
+                                    <i class="bi bi-check-circle-fill me-2"></i>RÉSOLU
+                                </div>
+                            </td>
+                        </tr>
                     </tbody>
                 </table>
             </div>
-            <div id="empty-state" class="text-center py-5 d-none">
-                <i class="bi bi-clipboard-x fs-1 text-muted"></i>
-                <p class="mt-2 text-muted">Vous n'avez pas encore de réclamations.</p>
+            <div class="bg-light py-4 text-center border-top border-white border-opacity-10">
+                <p class="small text-muted mb-0 fw-bold opacity-50 text-uppercase ls-widest">FIN DE LA LISTE - TICKET
+                    TOTAL: 02</p>
             </div>
+        </div>
+
+        <!-- Empty State Hint (Bootstrap Native) -->
+        <div class="mt-5 text-center p-5 bg-white rounded-5 shadow-sm border-0 d-none">
+            <i class="bi bi-inbox-fill display-1 text-light mb-3"></i>
+            <h4 class="fw-bold">Aucun ticket en cours</h4>
+            <p class="text-muted">Votre historique est vide. Un problème ? Contactez-nous dès maintenant.</p>
         </div>
     </main>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="script.js"></script>
-    <script>
-        document.addEventListener('DOMContentLoaded', () => {
-            renderMyComplaints();
-        });
-    </script>
 </body>
 
 </html>
